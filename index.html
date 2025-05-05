@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Selamat Ulang Tahun</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      width: 100%;
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+      background: #ffdde1;
+      background: linear-gradient(to right, #ffdde1, #ee9ca7);
+    }
+
+    #intro, #main {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #main {
+      display: none;
+      text-align: center;
+      color: white;
+    }
+
+    button {
+      padding: 1em 2em;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 10px;
+      background-color: #ff5e7e;
+      color: white;
+      cursor: pointer;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      animation: fadeIn 2s ease-out;
+    }
+
+    p {
+      font-size: 1.5em;
+      margin: 10px;
+      animation: fadeIn 3s ease-out;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 6s infinite ease-in;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        bottom: -10%;
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        bottom: 110%;
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Halaman Pembuka -->
+  <div id="intro">
+    <button onclick="start()">Klik di sini</button>
+  </div>
+
+  <!-- Halaman Utama -->
+  <div id="main">
+    <h1>Selamat Ulang Tahun!</h1>
+    <p>Semoga hari ini penuh dengan kebahagiaan.</p>
+    <p>Dan semoga semua impianmu segera tercapai.</p>
+  </div>
+
+  <!-- Hati Terbang -->
+  <div class="heart" style="left: 10%; animation-delay: 0s;"></div>
+  <div class="heart" style="left: 25%; animation-delay: 1s;"></div>
+  <div class="heart" style="left: 40%; animation-delay: 2s;"></div>
+  <div class="heart" style="left: 55%; animation-delay: 3s;"></div>
+  <div class="heart" style="left: 70%; animation-delay: 4s;"></div>
+  <div class="heart" style="left: 85%; animation-delay: 5s;"></div>
+
+  <!-- Musik -->
+  <audio id="bgmusic" loop>
+    <source src="Masa Depanmu Nielz Muzik (320K).mp3" type="audio/mpeg">
+    Browser kamu tidak mendukung audio.
+  </audio>
+
+  <script>
+    function start() {
+      document.getElementById('intro').style.display = 'none';
+      document.getElementById('main').style.display = 'flex';
+      document.getElementById('bgmusic').play();
+    }
+  </script>
+</body>
+</html>
